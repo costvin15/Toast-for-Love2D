@@ -37,7 +37,9 @@ end
 mensagem = toast:new(text, ...)
 ```
 Role: Create a new toast
+
 Return: A table
+
 Parameters:
 1. Text to print (mandatory)
 2. Window color (optional)
@@ -48,21 +50,27 @@ Parameters:
 mensagem.visibility()
 ```
 Role: Return the current message visibility state
+
 Return: boolean
+
 Parameters: void
 
 ```lua
 mensagem.show()
 ```
 Role: Toggle message visibility State to true
+
 Return: void
+
 Parameters: void
 
 ```lua
 mensagem.update(dt)
 ```
 Role: Framework callback, this function enables the library to know when to exit the screen
+
 Return: void
+
 Parameters:
 1. Delta Time (or dt), same as love.update (dt)
 
@@ -70,7 +78,9 @@ Parameters:
 mensagem.draw()
 ```
 Role: Draws and writes information on the screen
+
 Return: void
+
 Parameters: void
 
 ## Português
@@ -110,7 +120,9 @@ end
 mensagem = toast:new(text, ...)
 ```
 Função: cria um novo toast
+
 Retorno: uma tabela
+
 Parâmetros:
 1. Texto a ser impresso (Obrigatório)
 2. Cor da janela (Opcional)
@@ -121,21 +133,27 @@ Parâmetros:
 mensagem.visibility()
 ```
 Função: descobrir o atual estado de visibilidade da mensagem
+
 Retorno: boleano
+
 Parâmetros: vazio
 
 ```lua
 mensagem.show()
 ```
 Função: alternar estado de visibilidade da mensagem para verdadeiro
+
 Retorno: vazio
+
 Parâmetros: vazio
 
 ```lua
 mensagem.update(dt)
 ```
 Função: retorno de chamada do framework, essa função possibilita que a biblioteca saiba quando deve sair da tela
+
 Retorno: vazio
+
 Parâmetros:
 1. Delta time (ou dt), o mesmo de love.update(dt)
 
@@ -143,5 +161,7 @@ Parâmetros:
 mensagem.draw()
 ```
 Função: desenha e escreve informações na tela
+
 Retorno: vazio
+
 Parâmetros: vazio
