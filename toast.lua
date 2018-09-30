@@ -15,7 +15,7 @@ function toast:new(text, ...)
     -- @window background color -> receive varargs[2] if this is not false, or the color below
     current.backgroundcolor = varargs[2] or { 0, 0, 0, 0.8 };
     -- @Typographic font of text to be printed -> receive the return of love.graphics.newfont(varargs[3], varargs[4]) if varargs[3] and varargs[4] are not false, or the return of love.graphics.newFont() 
-    current.textfont (varargs[3] and varargs[4]) and love.graphics.newFont(varargs[3], varargs[4]) or love.graphics.newFont()
+    current.textfont = (varargs[3] and varargs[4]) and love.graphics.newFont(varargs[3], varargs[4]) or love.graphics.newFont()
 
     current.isVisible = false
     current.createdAt = false
@@ -53,9 +53,9 @@ function toast:new(text, ...)
             if (current.duration == "infinite") then
                 if (current.visibility() ~= true) then
                     current.isVisible = true
-                else
-                    error("Expected number or a string equal to \"infinite\". Was received \"" .. current.duration "\" with type \"" .. type(current.duration) .. "\"")
                 end
+            else
+                error("Expected number or a string equal to \"infinite\". Was received \"" .. current.duration "\" with type \"" .. type(current.duration) .. "\"")
             end
         else
             error("Expected number or a string equal to \"infinite\". Was received \"" .. current.duration "\" with type \"" .. type(current.duration) .. "\"")
@@ -69,10 +69,10 @@ function toast:new(text, ...)
             love.graphics.setColor(current.backgroundcolor)
             love.graphics.setFont(current.textfont)
             love.graphics.rectangle("fill",
-                (windowHeight / 2) - (textHeight / 2) - 25,
-                (windowHeight - 150) - (textHeight / 2) - 25,
-                textHeight + 50,
-                textWidth + 25
+                (windowWidth / 2) - (textWidth / 2) - 25,
+                (windowHeight - 150) - (textHeight / 2) - 25 / 2,
+                textWidth + 50,
+                textHeight + 25
             )
 
             if (current.backgroundcolor[1] == 0) and (current.backgroundcolor[2] == 0) and (current.backgroundcolor[3] == 0) then
@@ -81,7 +81,7 @@ function toast:new(text, ...)
                 love.graphics.setColor(0, 0, 0);
             end
 
-            love.graphics.printf(current.text, (windowWidth / 2) - (textWidth / 2), (windowHeight - 150) - (textHeight / 2))
+            love.graphics.print(current.text, (windowWidth / 2) - (textWidth / 2), (windowHeight - 150) - (textHeight / 2))
         end
     end
 
